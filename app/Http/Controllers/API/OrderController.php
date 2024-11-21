@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\ProductReview;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class ProductReviewController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProductReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductReview $productReview)
+    public function show(Order $order)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProductReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductReview $productReview)
+    public function edit(Order $order)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProductReviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProductReview $productReview)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProductReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductReview $productReview)
+    public function destroy(Order $order)
     {
         //
     }

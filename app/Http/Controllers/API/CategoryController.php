@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\DiscountItem;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class DiscountItemController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class DiscountItemController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DiscountItem $discountItem)
+    public function show(Category $category)
     {
         //
     }
@@ -42,7 +42,7 @@ class DiscountItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DiscountItem $discountItem)
+    public function edit(Category $category)
     {
         //
     }
@@ -50,7 +50,7 @@ class DiscountItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DiscountItem $discountItem)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -58,7 +58,7 @@ class DiscountItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DiscountItem $discountItem)
+    public function destroy(Category $category)
     {
         //
     }
