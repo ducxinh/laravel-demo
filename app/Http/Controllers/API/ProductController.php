@@ -15,8 +15,25 @@ class ProductController extends Controller
      */
     public function index(ListProductRequest $request)
     {
+        $name = $request->get('name');
         $perPage = $request->get('per_page') || 25;
-        $products = Product::paginate($perPage);
+        $query = Product::query();
+
+        if ($name) {
+            $query->where('name', 'LIKE', "%{$name}%");
+        }
+
+        $products = $query->paginate($perPage);
+        return response()->json($products);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function all(ListProductRequest $request)
+    {
+        $query = Product::query();
+        $products = $query->all();
         return response()->json($products);
     }
 
@@ -54,5 +71,15 @@ class ProductController extends Controller
     {
         $product->delete();
         return response()->json(null, 204);
+    }
+
+    /**
+     * Search for products by name.
+     */
+    public function search(Request $request)
+    {
+        $name = $request->get('name');
+        $products = Product::where('name', 'LIKE', "%{$name}%")->get();
+        return response()->json($products);
     }
 }

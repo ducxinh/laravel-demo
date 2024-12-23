@@ -12,7 +12,7 @@ class CreateOrderRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
-    }
+    } 
 
     /**
      * Get the validation rules that apply to the request.
@@ -22,7 +22,12 @@ class CreateOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => 'nullable|integer|exists:users,id',
+            'userName' => 'required|string|max:255',
+            'userEmail' => 'required|email|max:255',
+            'description' => 'nullable|string|max:500',
+            'total' => 'required|numeric|min:0',
+            'status' => 'required|in:pending,processing,completed,cancelled',
         ];
     }
 }

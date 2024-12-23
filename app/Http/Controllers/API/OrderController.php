@@ -12,15 +12,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $orders = Order::all();
+        return response()->json($orders);
     }
 
     /**
@@ -28,7 +21,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sampleRequestData = [
+            'user_id' => 1,
+            'userName' => 'John Doe',
+            'userEmail' => 'xinhnd@example.com',
+            'description' => 'This is a sample order',
+            'total' => 100,
+            'product_id' => 1,
+        ];
+        $status = 'pending';
+        $request->merge(['status' => $status]);
+        $order = Order::create($request->all());
+
+        return response()->json($order, 201);
     }
 
     /**
@@ -36,15 +41,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
+        return response()->json($order);
     }
 
     /**
@@ -52,7 +49,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $order->update($request->all());
+        return response()->json($order);
     }
 
     /**
@@ -60,6 +58,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return response()->json(null, 204);
     }
 }
