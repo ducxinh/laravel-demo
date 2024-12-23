@@ -58,6 +58,11 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'nix-logger' => [
+            'driver' => 'custom',
+            'via' => \NixLogger\Laravel\Logger\NixLogger::class,
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
