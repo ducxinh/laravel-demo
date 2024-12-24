@@ -2240,16 +2240,16 @@
         },
         {
             "name": "nix-logger/nix-logger",
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nix-group/nix-logger-php.git",
-                "reference": "54594719d9ac0ba0e9e8d15e15cfe0259cf1865b"
+                "reference": "864e112f084e3ffd52d88cd62466669b954fbb1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nix-group/nix-logger-php/zipball/54594719d9ac0ba0e9e8d15e15cfe0259cf1865b",
-                "reference": "54594719d9ac0ba0e9e8d15e15cfe0259cf1865b",
+                "url": "https://api.github.com/repos/nix-group/nix-logger-php/zipball/864e112f084e3ffd52d88cd62466669b954fbb1e",
+                "reference": "864e112f084e3ffd52d88cd62466669b954fbb1e",
                 "shasum": ""
             },
             "require": {
@@ -2275,22 +2275,22 @@
             "description": "Nix Logger PHP",
             "support": {
                 "issues": "https://github.com/nix-group/nix-logger-php/issues",
-                "source": "https://github.com/nix-group/nix-logger-php/tree/v1.3.3"
+                "source": "https://github.com/nix-group/nix-logger-php/tree/v1.3.4"
             },
-            "time": "2024-10-08T09:43:14+00:00"
+            "time": "2024-12-24T03:54:22+00:00"
         },
         {
             "name": "nix-logger/nix-logger-laravel",
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nix-group/nix-logger-laravel.git",
-                "reference": "91287b8d6e26392b3ac547133d1bb931c0cc8b45"
+                "reference": "2a77d3dc84363b61a233080b1746af28178c5f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nix-group/nix-logger-laravel/zipball/91287b8d6e26392b3ac547133d1bb931c0cc8b45",
-                "reference": "91287b8d6e26392b3ac547133d1bb931c0cc8b45",
+                "url": "https://api.github.com/repos/nix-group/nix-logger-laravel/zipball/2a77d3dc84363b61a233080b1746af28178c5f54",
+                "reference": "2a77d3dc84363b61a233080b1746af28178c5f54",
                 "shasum": ""
             },
             "require": {
@@ -2332,9 +2332,9 @@
             "description": "Nix Logger",
             "support": {
                 "issues": "https://github.com/nix-group/nix-logger-laravel/issues",
-                "source": "https://github.com/nix-group/nix-logger-laravel/tree/v1.3.3"
+                "source": "https://github.com/nix-group/nix-logger-laravel/tree/v1.3.4"
             },
-            "time": "2024-10-08T09:44:09+00:00"
+            "time": "2024-12-24T04:07:10+00:00"
         },
         {
             "name": "nunomaduro/termwind",
