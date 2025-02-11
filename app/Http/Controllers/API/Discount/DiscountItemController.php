@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Discount;
 
-use App\Models\OrderDetail;
+use App\Http\Controllers\API\Controller;
+use App\Models\DiscountItem;
 use Illuminate\Http\Request;
 
-class OrderDetailController extends Controller
+class DiscountItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class OrderDetailController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(OrderDetail $orderDetail)
+    public function show(DiscountItem $discountItem)
     {
         //
     }
@@ -42,7 +43,7 @@ class OrderDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(OrderDetail $orderDetail)
+    public function edit(DiscountItem $discountItem)
     {
         //
     }
@@ -50,7 +51,7 @@ class OrderDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, OrderDetail $orderDetail)
+    public function update(Request $request, DiscountItem $discountItem)
     {
         //
     }
@@ -58,7 +59,7 @@ class OrderDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(OrderDetail $orderDetail)
+    public function destroy(DiscountItem $discountItem)
     {
         //
     }

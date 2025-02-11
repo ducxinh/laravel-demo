@@ -18,4 +18,21 @@ abstract class Controller
     {
         return response()->json($data, $statusCode);
     }
+
+    /**
+     * Response structure json success: data and pagination.
+     * 
+     * @param $data \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function responsePaginate($data, $statusCode = Response::HTTP_OK): JsonResponse
+    {
+        return response()->json([
+            'data' => $data->items(),
+            'pagination' => [
+                'current_page' => $data->currentPage(),
+                'per_page' => $data->perPage(),
+                'total' => $data->total(),
+            ],
+        ], $statusCode);
+    }
 }

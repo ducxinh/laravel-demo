@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Product;
 
-use App\Models\Discount;
+use App\Http\Controllers\API\Controller;
+use App\Models\ProductReview;
 use Illuminate\Http\Request;
 
-class DiscountController extends Controller
+class ProductReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class DiscountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Discount $discount)
+    public function show(ProductReview $productReview)
     {
         //
     }
@@ -42,7 +43,7 @@ class DiscountController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Discount $discount)
+    public function edit(ProductReview $productReview)
     {
         //
     }
@@ -50,7 +51,7 @@ class DiscountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Discount $discount)
+    public function update(Request $request, ProductReview $productReview)
     {
         //
     }
@@ -58,7 +59,7 @@ class DiscountController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Discount $discount)
+    public function destroy(ProductReview $productReview)
     {
         //
     }

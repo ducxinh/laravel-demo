@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Coupon;
 
-use App\Models\DiscountItem;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Coupon\StoreCouponRequest;
+use App\Http\Requests\Coupon\UpdateCouponRequest;
+use App\Models\Coupon;
 
-class DiscountItemController extends Controller
+class CouponController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +28,7 @@ class DiscountItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCouponRequest $request)
     {
         //
     }
@@ -34,7 +36,7 @@ class DiscountItemController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DiscountItem $discountItem)
+    public function show(Coupon $coupon)
     {
         //
     }
@@ -42,7 +44,7 @@ class DiscountItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DiscountItem $discountItem)
+    public function edit(Coupon $coupon)
     {
         //
     }
@@ -50,7 +52,7 @@ class DiscountItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DiscountItem $discountItem)
+    public function update(UpdateCouponRequest $request, Coupon $coupon)
     {
         //
     }
@@ -58,7 +60,7 @@ class DiscountItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DiscountItem $discountItem)
+    public function destroy(Coupon $coupon)
     {
         //
     }

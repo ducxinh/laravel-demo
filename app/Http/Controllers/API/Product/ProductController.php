@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Product;
 
-use App\Http\Requests\CreateProductRequest;
-use App\Http\Requests\ListProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Controllers\API\Controller;
+use App\Http\Requests\Product\CreateProductRequest;
+use App\Http\Requests\Product\ListProductRequest;
+use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,16 +16,14 @@ class ProductController extends Controller
      */
     public function index(ListProductRequest $request)
     {
-        $name = $request->get('name');
-        $perPage = $request->get('per_page') || 25;
+        $name = $request->input('name');
+        $perPage = $request->input('per_page') ?? 25;
         $query = Product::query();
 
         if ($name) {
             $query->where('name', 'LIKE', "%{$name}%");
         }
-
-        $products = $query->paginate($perPage);
-        return response()->json($products);
+        return $this->responsePaginate($query->paginate($perPage));
     }
 
     /**
@@ -36,7 +35,6 @@ class ProductController extends Controller
         $products = $query->all();
         return response()->json($products);
     }
-
 
     /**
      * Store a newly created resource in storage.

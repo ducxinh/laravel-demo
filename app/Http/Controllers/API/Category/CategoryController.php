@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Category;
 
-use App\Models\ProductReview;
+use App\Http\Controllers\API\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ProductReviewController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class ProductReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductReview $productReview)
+    public function show(Category $category)
     {
         //
     }
@@ -42,7 +43,7 @@ class ProductReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductReview $productReview)
+    public function edit(Category $category)
     {
         //
     }
@@ -50,7 +51,7 @@ class ProductReviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProductReview $productReview)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -58,7 +59,7 @@ class ProductReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductReview $productReview)
+    public function destroy(Category $category)
     {
         //
     }
