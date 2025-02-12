@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coupon extends Model
 {
-    /** @use HasFactory<\Database\Factories\CouponFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'code', 'type', 'value', 'is_used', 'expired_at', 'max_use', 'used'
+    ];
 }

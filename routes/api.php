@@ -6,6 +6,7 @@ use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Category\CategoryController;
 use App\Http\Controllers\API\Product\ProductController;
 use App\Http\Controllers\API\Order\OrderController;
+use App\Http\Controllers\API\Coupon\CouponController;
 
 // Auth
 Route::post('register', [AuthController::class, 'register']);
@@ -18,4 +19,5 @@ Route::get('products/all', [ProductController::class, 'all']);
 
 Route::apiResource('orders', OrderController::class);
 Route::apiResource('categories', CategoryController::class);
+Route::apiResource('coupons', CouponController::class);
 

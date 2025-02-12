@@ -4,7 +4,7 @@ namespace App\Http\Requests\Coupon;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCouponRequest extends FormRequest
+class CreateCouponRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,7 +14,7 @@ class UpdateCouponRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => 'required|string|unique:coupons,code,' . $this->route('coupon'),
+            'code' => 'required|string|unique:coupons,code',
             'type' => 'required|string|in:fixed,percentage',
             'value' => 'required|integer',
             'is_used' => 'boolean',
