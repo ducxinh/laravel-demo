@@ -6,6 +6,8 @@ use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Product\ProductController;
 use App\Http\Controllers\API\Order\OrderController;
 
+includeRouteFiles(__DIR__.'/docs/');
+
 // Auth
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);

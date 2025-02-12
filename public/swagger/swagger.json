@@ -1,0 +1,136 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Kozocom Laravel API docs",
+        "description": "This is a sample API docs for Kozocom Laravel application",
+        "contact": { "email": "xinhnd@kozo-japan.com" },
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/v1",
+            "description": "local",
+            "variables": {}
+        },
+        {
+            "url": "https://api.template.kozocom-lab.com/api/v1",
+            "description": "dev"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Everything about your Auth",
+            "externalDocs": {
+                "description": "Find out more about Auth",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Users",
+            "description": "Operations about Users",
+            "externalDocs": {
+                "description": "Find out more about user",
+                "url": "http://swagger.io"
+            }
+        }
+    ],
+    "paths": {},
+    "components": {
+        "responses": {
+            "SuccessRequest": {
+                "description": "Success",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "required": ["code", "message"],
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "success": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "example": {
+                            "code": 200,
+                            "message": "Success",
+                            "success": true
+                        }
+                    }
+                }
+            },
+            "NotFound": {
+                "description": "Not Found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Error"
+                        },
+                        "example": {
+                            "code": 404,
+                            "message": "Not Found"
+                        }
+                    }
+                }
+            },
+            "Forbidden": {
+                "description": "Forbidden",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Error"
+                        },
+                        "example": {
+                            "code": 403,
+                            "message": "Forbidden"
+                        }
+                    }
+                }
+            },
+            "Unauthorized": {
+                "description": "Unauthorized",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Error"
+                        },
+                        "example": {
+                            "code": 401,
+                            "message": "Please authenticate"
+                        }
+                    }
+                }
+            },
+            "BadRequest": {
+                "description": "Bad Request",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Error"
+                        },
+                        "example": {
+                            "code": 400,
+                            "message": "The request is invalid",
+                            "error": true,
+                            "errors": {
+                                "email": ["The email field is required."],
+                                "name": ["The name field is required."]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "schemas": {}
+    }
+}
