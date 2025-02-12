@@ -11,6 +11,13 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    protected $product;
+
+    public function __construct(Product $product)
+    {
+        $this->product = $product;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -18,7 +25,7 @@ class ProductController extends Controller
     {
         $name = $request->input('name');
         $perPage = $request->input('per_page') ?? 25;
-        $query = Product::query();
+        $query = $this->product->query();
 
         if ($name) {
             $query->where('name', 'LIKE', "%{$name}%");
@@ -31,7 +38,7 @@ class ProductController extends Controller
      */
     public function all(ListProductRequest $request)
     {
-        $query = Product::query();
+        $query = $this->product->query();
         $products = $query->all();
         return response()->json($products);
     }
@@ -41,7 +48,7 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-        $product = Product::create($request->validated());
+        $product = $this->product->create($request->validated());
         return response()->json($product, 201);
     }
 
@@ -69,15 +76,5 @@ class ProductController extends Controller
     {
         $product->delete();
         return response()->json(null, 204);
-    }
-
-    /**
-     * Search for products by name.
-     */
-    public function search(Request $request)
-    {
-        $name = $request->get('name');
-        $products = Product::where('name', 'LIKE', "%{$name}%")->get();
-        return response()->json($products);
     }
 }

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('value');
             $table->boolean('is_used')->default(false);
             $table->dateTime('expired_at')->nullable();
+            $table->integer('max_use')->nullable();
+            $table->integer('used')->default(0);
             $table->timestamps();
         });
     }

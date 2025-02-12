@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    protected $order;
+
+    public function __construct(Order $order)
+    {
+        $this->order = $order;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -16,7 +23,7 @@ class OrderController extends Controller
     {
         $userName = $request->get('user_name');
         $perPage = $request->get('per_page') ?? 25;
-        $query = Order::query();
+        $query = $this->order->query();
 
         if ($userName) {
             $query->where('user_name', 'LIKE', "%{$userName}%");
@@ -47,7 +54,7 @@ class OrderController extends Controller
             'total' => $total,
         ]);
 
-        $order = Order::create($orderData);
+        $order = $this->order->create($orderData);
         foreach ($orderDetailsData as $item) {
             $item['order_id'] = $order->id;
             OrderDetail::create($item);

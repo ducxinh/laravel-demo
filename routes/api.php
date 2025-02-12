@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\Category\CategoryController;
 use App\Http\Controllers\API\Product\ProductController;
 use App\Http\Controllers\API\Order\OrderController;
 
@@ -16,4 +17,5 @@ Route::apiResource('products', ProductController::class);
 Route::get('products/all', [ProductController::class, 'all']); 
 
 Route::apiResource('orders', OrderController::class);
+Route::apiResource('categories', CategoryController::class);
 
