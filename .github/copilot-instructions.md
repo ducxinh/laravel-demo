@@ -18,3 +18,7 @@ app/Models/<Feature>.php
 - Follow and Folder Structure
 - always use responsePaginate from App\Http\Controllers\API\Controller to return data for index function in controller
 - Register route to routes/api.php
+- Add Api docs: 
+  + public/swagger/data/schemas/<feature>/index.json
+  + public/swagger/data/paths/<feature>/index.json
+- Register Api Docs in app/Http/Controllers/API/ApiDocsController.php
