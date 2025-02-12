@@ -1,0 +1,61 @@
+{
+    "Pagination": {
+        "type": "object",
+        "properties": {
+            "current_page": { "type": "integer" },
+            "from": { "type": "integer" },
+            "last_page_url": { "type": "string" },
+            "next_page_url": { "type": "string" },
+            "path": { "type": "string" },
+            "per_page": { "type": "integer" },
+            "prev_page_url": { "type": "string" },
+            "to": { "type": "integer" },
+            "total": { "type": "integer" }
+        },
+        "example": {
+            "current_page": 1,
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://localhost/api/v1/users?page=1",
+            "next_page_url": null,
+            "path": "http://localhost/api/v1/users",
+            "per_page": 25,
+            "prev_page_url": null,
+            "to": 2,
+            "total": 2
+        },
+        "xml": { "name": "Pagination" }
+    },
+    "Error": {
+        "type": "object",
+        "required": ["code", "message"],
+        "properties": {
+            "code": {
+                "type": "integer",
+                "format": "int32"
+            },
+            "message": {
+                "type": "string"
+            },
+            "error": {
+                "type": "boolean"
+            },
+            "errors": {
+                "type": "object"
+            }
+        },
+        "example": {
+            "code": 500,
+            "message": "Internal Server Error",
+            "error": true
+        }
+    },
+    "ApiResponse": {
+        "type": "object",
+        "properties": {
+            "code": { "type": "integer", "format": "int32" },
+            "type": { "type": "string" },
+            "message": { "type": "string" }
+        }
+    }
+}

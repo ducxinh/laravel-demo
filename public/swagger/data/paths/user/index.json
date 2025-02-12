@@ -1,0 +1,197 @@
+{
+    "/users": {
+        "get": {
+            "tags": ["Users"],
+            "summary": "List all Users",
+            "description": "This is a description",
+            "operationId": "listUsers",
+            "parameters": [
+                {
+                    "name": "per_page",
+                    "in": "query",
+                    "description": "Number of items per page (max 100)",
+                    "required": false,
+                    "schema": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100,
+                        "format": "int32"
+                    }
+                },
+                {
+                    "name": "page",
+                    "in": "query",
+                    "description": "Page number",
+                    "required": false,
+                    "schema": {
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Successful operation",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "pagination": {
+                                        "$ref": "#/components/schemas/Pagination"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "post": {
+            "tags": ["Users"],
+            "summary": "Create a user",
+            "description": "This is a description",
+            "operationId": "createUser",
+            "security": [{ "bearerAuth": [] }],
+            "requestBody": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserInput"
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "400": {
+                    "description": "Invalid request data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            },
+                            "example": {
+                                "code": 400,
+                                "message": "The request is invalid",
+                                "error": true,
+                                "errors": {
+                                    "email": [
+                                        "The email address already taken"
+                                    ],
+                                    "name": ["The name field is required."]
+                                }
+                            }
+                        }
+                    }
+                },
+                "201": {
+                    "description": "User created successfully",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "/users/{userId}": {
+        "get": {
+            "tags": ["Users"],
+            "summary": "Detail a User",
+            "description": "This is a description",
+            "operationId": "showUser",
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "The id of the User to retrieve",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Expected response to a valid request",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "$ref": "#/components/responses/NotFound"
+                }
+            }
+        },
+        "put": {
+            "tags": ["Users"],
+            "summary": "Update a User",
+            "description": "This is a description",
+            "operationId": "updateUser",
+            "consumes": ["application/json", "application/xml"],
+            "produces": ["application/json", "application/xml"],
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "The id of the User to retrieve",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "requestBody": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserInput"
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "400": { "$ref": "#/components/responses/BadRequest" },
+                "404": { "$ref": "#/components/responses/NotFound" }
+            },
+            "security": [{ "Userstore_auth": ["write:Users", "read:Users"] }]
+        },
+        "delete": {
+            "tags": ["Users"],
+            "summary": "Delete a User",
+            "description": "This is a description",
+            "operationId": "deleteUser",
+            "produces": ["application/json", "application/xml"],
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "description": "User id to delete",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }
+            ],
+            "responses": {
+                "404": { "$ref": "#/components/responses/NotFound" },
+                "200": { "$ref": "#/components/responses/SuccessRequest" }
+            },
+            "security": [{ "Userstore_auth": ["write:Users", "read:Users"] }]
+        }
+    }
+}
