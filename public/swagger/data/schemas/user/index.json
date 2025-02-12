@@ -1,0 +1,35 @@
+{
+    "User": {
+        "type": "object",
+        "properties": {
+            "id": { "type": "integer", "format": "int64" },
+            "name": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "role": { "type": "string" }
+        },
+        "example": {
+            "id": "5ebac534954b54139806c112",
+            "email": "fake@example.com",
+            "name": "fake name",
+            "role": "user"
+        },
+        "xml": { "name": "User" }
+    },
+    "UserInput": {
+        "type": "object",
+        "properties": {
+            "name": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "password": { "type": "string", "minLength": 8 },
+            "role": { "type": "string" }
+        },
+        "example": {
+            "name": "fakename",
+            "email": "fake@example.com",
+            "password": "password",
+            "role": "user"
+        },
+        "required": ["name", "email", "password"],
+        "xml": { "name": "User" }
+    }
+}
