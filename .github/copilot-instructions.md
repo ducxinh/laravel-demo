@@ -22,3 +22,8 @@ app/Models/<Feature>.php
   + public/swagger/data/schemas/<feature>/index.json
   + public/swagger/data/paths/<feature>/index.json
 - Register Api Docs in app/Http/Controllers/API/ApiDocsController.php
+
+## For implement test
+- Refer Product test
+- Test feature pattern: tests/Feature/<Feature>/<Feature>Test.php
+- refer Class Syntax to tests/Feature/<Feature>/<Feature>Test.php
