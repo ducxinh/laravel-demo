@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "version": "1.0.0",
-        "title": "Kozocom Laravel API docs",
-        "description": "This is a sample API docs for Kozocom Laravel application",
+        "title": "Laravel API docs",
+        "description": "This is a sample API docs for Laravel application",
         "contact": { "email": "xinhnd@kozo-japan.com" },
         "license": {
             "name": "MIT"
@@ -16,7 +16,7 @@
             "variables": {}
         },
         {
-            "url": "https://api.template.kozocom-lab.com/api/v1",
+            "url": "https://api.example.com/api/v1",
             "description": "dev"
         }
     ],
